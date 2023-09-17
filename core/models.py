@@ -9,7 +9,7 @@ User=get_user_model()
 # Create your models here.
 
 class Profile(models.Model):
-    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    user=models.OneToOneField(User,on_delete=models.CASCADE ,related_name='user_profile')
     id_user=models.IntegerField()
     bio=models.TextField(blank=True)
     profileimg=models.ImageField(upload_to='profile_images',default='blank-profile-picture.png')
