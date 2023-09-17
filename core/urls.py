@@ -5,6 +5,9 @@ urlpatterns=[
     path('',views.index,name='index'),
     path('about/',views.about,name='about'),
     path('upload',views.upload,name='upload'),
+    path('follow', views.follow, name='follow'),
+    path('profile/<str:pk>', views.profile, name='profile'),
+    path('like-post',views.like_post,name='like-post'),
     path('signup/',views.signup,name='signup'),
     path('signin/',views.signin,name='signin'),
     
