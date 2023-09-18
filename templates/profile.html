@@ -26,13 +26,16 @@
         </figure>
         <form action="/follow" method="POST">
           {% csrf_token %}
+
+          <!-- home -->
           <div class="add-btn">
-            <span style="color: white; font-size: 27px; margin-right: 520px"
+            <span style="color: white; font-size: 27px; margin-right: 600px"
               ><b
                 ><u><a href="/">Home</a></u></b
               ></span
             >
 
+            <!-- No of posts -->
             {% if user_post_length == 0 %}
             <span style="color: white; font-size: 27px"><b>No Post</b></span>
             {% elif user_post_length == 1 %}
@@ -43,7 +46,11 @@
             <span style="color: white; font-size: 27px"
               ><b>{{user_post_length}} Posts</b></span
             >
-            {% endif %} {% if user_followers == 0 or user_followers == 1 %}
+
+            {% endif %}
+
+            <!-- No of followers -->
+            {% if user_followers == 0 or user_followers == 1 %}
             <span style="color: white; font-size: 27px"
               ><b>{{user_followers}} follower</b></span
             >
@@ -53,6 +60,7 @@
             >
             {% endif %}
 
+            <!-- following -->
             <span style="color: white; font-size: 27px"
               ><b>{{user_following}} following</b></span
             >
@@ -60,17 +68,11 @@
             <input type="hidden" value="{{user.username}}" name="follower" />
             <input type="hidden" value="{{user_object.username}}" name="user" />
 
+            <!-- settings -->
             {% if user_object.username == user.username %}
             <a href="/about" data-ripple="">Account Settings</a>
             {% else %}
-            <a data-ripple=""
-              ><button
-                type="submit"
-                style="background-color: #ffc0cb; border: #ffc0cb"
-              >
-                {{button_text}}
-              </button></a
-            >
+            <a data-ripple="" ><button type="submit" style="background-color: #ffc0cb; border: #ffc0cb">{{button_text}}</button></a>
             {% endif %}
           </div>
         </form>
